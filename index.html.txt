@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- <!-- Meta Tags de Redirecionamento e Preview -->
+<meta  content="0; URL='https://vt.tiktok.com/ZSHcpCYB85L7P-tsAma/'" />
+
+<!-- Meta Tags Básicas -->
+<meta name="title" content="Virginia solta a BOMBA sobre ZE Felipe" />
+<meta name="description" content="portaleodias.com.br" />
+
+<!-- Open Graph / Facebook / Threads -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://vt.tiktok.com/ZSHcpCYB85L7P-tsAma/" />
+<meta property="og:title" content="Virginia solta a BOMBA sobre ZE Felipe" />
+<meta property="og:description" content="portaleodias.com.br" />
+<meta property="og:image" content="https://s2.glbimg.com/2OV2V7di_Mp9FLN0dibIaD8BmWg=/e.glbimg.com/og/ed/f/original/2021/10/18/photo_2021-10-18_17-03-39.jpg" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://vt.tiktok.com/ZSHcpCYB85L7P-tsAma/" />
+<meta property="twitter:title" content="Virginia solta a BOMBA sobre ZE Felipe" />
+<meta property="twitter:description" content="portaleodias.com.br" />
+<meta property="twitter:image" content="https://s2.glbimg.com/2OV2V7di_Mp9FLN0dibIaD8BmWg=/e.glbimg.com/og/ed/f/original/2021/10/18/photo_2021-10-18_17-03-39.jpg" /> -->
+    
+    <title>Redirecionando...</title>
+</head>
+<body>
+    <p>Redirecionando...</p>
+</body>
+</html>
