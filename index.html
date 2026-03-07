@@ -3,281 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- SEO Dinâmico: título e meta description são setados via JS -->
-  <title>Oferta Exclusiva 🔥</title>
-  <meta name="description" content="Promoção por tempo limitado. Acesse agora!" />
-
-  <!-- Open Graph para preview no Threads / outras redes -->
-  <meta property="og:title" content="Oferta Exclusiva 🔥" />
-  <meta property="og:description" content="Promoção por tempo limitado. Acesse agora!" />
+  <title>🔥 Vídeo Imperdível</title>
+  <meta name="description" content="Vídeo exclusivo publicado pelo Portal Leo Dias no TikTok." />
+  <meta property="og:title" content="🔥 Vídeo Imperdível – Portal Leo Dias" />
+  <meta property="og:description" content="Vídeo exclusivo no TikTok. Assista agora antes que suma!" />
   <meta property="og:type" content="website" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --neon-tiktok: #69C9D0;
-      --neon-tiktok2: #EE1D52;
+      --red:    #FF0026;
+      --red2:   #FF4D00;
+      --yellow: #FFD600;
+      --dark:   #0a0a0a;
+      --tk1:    #69C9D0;
+      --tk2:    #EE1D52;
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      background: #0f0f0f;
-      font-family: 'DM Sans', sans-serif;
+    html, body {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem;
-      position: relative;
+      background: var(--dark);
+      font-family: "DM Sans", sans-serif;
       overflow-x: hidden;
     }
 
-    /* Fundo com textura sutil */
     body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
+      content: "";
+      position: fixed; inset: 0;
       background:
-        radial-gradient(ellipse 60% 40% at 20% 20%, rgba(105,201,208,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(238,29,82,0.07) 0%, transparent 60%);
-      pointer-events: none;
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255,0,38,.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(255,77,0,.08) 0%, transparent 55%);
+      pointer-events: none; z-index: 0;
     }
 
-    h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+    .wrapper {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 1.5rem 1rem;
     }
 
-    /* ── Botão base ── */
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      width: 100%;
-      max-width: 420px;
-      padding: 1rem 1.5rem;
-      border-radius: 999px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      text-decoration: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn:hover  { transform: translateY(-2px) scale(1.02); filter: brightness(1.1); }
-    .btn:active { transform: scale(0.98); }
-
-    /* Threads */
-    .btn-threads {
-      background: #000;
-      color: #fff;
-      border: 1.5px solid #333;
-      box-shadow: 0 0 0 0 transparent;
-    }
-    .btn-threads:hover { box-shadow: 0 6px 24px rgba(255,255,255,0.12); border-color: #555; }
-
-    /* TikTok */
-    .btn-tiktok {
+    /* ── CARD ── */
+    .card {
+      width: 100%; max-width: 780px;
       background: #111;
+      border: 2px solid #1e1e1e;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+      animation: fadeUp .5s ease .1s both;
+    }
+
+    /* ── HEADLINE ── */
+    .headline-wrap {
+      width: 100%;
+      padding: 2.5rem 2.2rem 1.8rem;
+      display: flex; flex-direction: column; align-items: center; gap: .6rem;
+    }
+
+    .headline {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(3.5rem, 14vw, 6.5rem);
+      line-height: .9;
+      text-align: center;
+      letter-spacing: .03em;
+      text-transform: uppercase;
       color: #fff;
-      border: 1.5px solid transparent;
-      background-clip: padding-box;
-      box-shadow: 0 0 0 1.5px var(--neon-tiktok), 0 0 16px rgba(105,201,208,0.35), inset 0 0 0 1.5px var(--neon-tiktok2);
     }
-    .btn-tiktok:hover { box-shadow: 0 0 0 1.5px var(--neon-tiktok), 0 0 28px rgba(105,201,208,0.55), inset 0 0 0 1.5px var(--neon-tiktok2); }
-
-    /* YouTube */
-    .btn-youtube {
-      background: #FF0000;
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(255,0,0,0.35);
+    .hl {
+      background: linear-gradient(90deg, var(--red), var(--red2), var(--yellow), var(--red2), var(--red));
+      background-size: 300% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
     }
-    .btn-youtube:hover { box-shadow: 0 6px 28px rgba(255,0,0,0.55); }
+    @keyframes shimmer { 0%{background-position:0% center} 100%{background-position:300% center} }
 
-    /* Instagram */
-    .btn-instagram {
-      background: linear-gradient(135deg, #F58529 0%, #DD2A7B 40%, #8134AF 70%, #515BD4 100%);
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(221,42,123,0.35);
+    /* ── IMAGEM BORRADA ── */
+    .thumb-wrap {
+      width: 100%; position: relative; overflow: hidden;
+      height: 360px;
     }
-    .btn-instagram:hover { box-shadow: 0 6px 28px rgba(221,42,123,0.55); }
-
-    /* WhatsApp */
-    .btn-whatsapp {
-      background: #25D366;
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
-      animation: pulse-green 2.2s infinite;
+    .thumb-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: blur(6px) brightness(.55) saturate(1.2);
+      transform: scale(1.08);
     }
-    .btn-whatsapp:hover { animation: none; box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+    .thumb-wrap::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(17,17,17,.6) 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(17,17,17,.9) 100%
+      );
+    }
+    .thumb-play {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .play-circle {
+      width: 82px; height: 82px; border-radius: 50%;
+      background: rgba(238,29,82,.85);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 30px rgba(238,29,82,.6);
+      animation: playPulse 2s ease-in-out infinite;
+    }
+    @keyframes playPulse {
+      0%,100%{ box-shadow: 0 0 20px rgba(238,29,82,.5); transform: scale(1); }
+      50%    { box-shadow: 0 0 40px rgba(238,29,82,.8); transform: scale(1.06); }
+    }
+    .play-circle svg { width: 32px; height: 32px; margin-left: 5px; }
 
-    @keyframes pulse-green {
-      0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
-      60%  { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
-      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    /* ── DIVIDER ── */
+    .divider { width:100%; height:1px; background: linear-gradient(90deg,transparent,#2a2a2a,transparent); }
+
+    /* ── CTA PRINCIPAL ── */
+    .cta-section {
+      width: 100%; padding: 2rem 2rem 2.2rem;
+      display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+    }
+    .cta-wrap { width: 100%; position: relative; }
+    .cta-glow {
+      position: absolute; inset: -4px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--tk2), var(--tk1), var(--tk2));
+      background-size: 200% 200%;
+      filter: blur(10px); opacity: .65;
+      animation: glowPulse 2.5s ease-in-out infinite, gradShift 3s ease infinite;
+      z-index: 0;
+    }
+    @keyframes glowPulse { 0%,100%{opacity:.55;filter:blur(9px)} 50%{opacity:.9;filter:blur(14px)} }
+    @keyframes gradShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+    .cta-btn {
+      position: relative; z-index: 1;
+      width: 100%; background: #0f0f0f;
+      border: 2px solid #2a2a2a; border-radius: 12px;
+      padding: 2rem 1.5rem 1.7rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: .2rem;
+      cursor: pointer; text-decoration: none;
+      transition: transform .15s ease;
+    }
+    .cta-btn:hover  { transform: translateY(-3px); }
+    .cta-btn:active { transform: scale(.99); }
+    .cta-main {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2rem, 8vw, 3.4rem);
+      color: #fff; letter-spacing: .07em; line-height: 1; text-align: center;
+    }
+    .cta-note {
+      margin-top: .4rem; font-size: .7rem; color: #555;
+      letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
     }
 
-    /* Ícone SVG inline */
-    .icon { width: 22px; height: 22px; flex-shrink: 0; }
+    .footer-note { font-size:.68rem; color:#333; text-align:center; }
 
-    /* Contador regressivo */
-    #timer {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #FF0000;
-      letter-spacing: 0.05em;
-    }
-
-    /* Animação de entrada */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade-up { animation: fadeUp 0.5s ease both; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
-    .delay-6 { animation-delay: 0.6s; }
-    .delay-7 { animation-delay: 0.7s; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
   </style>
 </head>
 <body>
+<div class="wrapper">
+  <div class="card">
 
-  <div class="flex flex-col items-center gap-5 w-full" style="max-width:480px">
-
-    <!-- Badge de urgência -->
-    <div class="fade-up delay-1 flex items-center gap-2 bg-red-950/60 border border-red-700/60 text-red-400 text-xs font-medium px-4 py-1.5 rounded-full uppercase tracking-widest">
-      <span class="w-2 h-2 rounded-full bg-red-500 animate-ping inline-block"></span>
-      Vídeo disponível por tempo limitado
+    <!-- HEADLINE -->
+    <div class="headline-wrap">
+      <h1 class="headline">
+        <span class="hl">ASSISTA O VÍDEO:</span>
+      </h1>
     </div>
 
-    <!-- Título dinâmico -->
-    <h1 id="main-title" class="fade-up delay-2 text-white text-3xl text-center leading-tight">
-      🔥 Vídeo Imperdível
-    </h1>
-
-    <p class="fade-up delay-3 text-zinc-400 text-center text-sm leading-relaxed" style="max-width:340px">
-      Toque em qualquer botão abaixo para acessar o vídeo antes que ele seja excluído.
-    </p>
-
-    <!-- Contador -->
-    <div class="fade-up delay-3 flex flex-col items-center gap-1">
-      <span class="text-zinc-500 text-xs uppercase tracking-widest">Expira em</span>
-      <span id="timer">--:--</span>
+    <!-- FOTO BORRADA -->
+    <!-- ⚠️ No arquivo .html baixado, a imagem já está embutida aqui -->
+    <div class="thumb-wrap">
+      <img class="thumb-img" src="SUA_IMAGEM_AQUI" alt="Thumbnail do vídeo" />
+      <div class="thumb-play" onclick="handleClick(event)" style="cursor:pointer;">
+        <div class="play-circle">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
     </div>
 
-    <!-- Botões -->
-    <a id="btn-threads"   href="#" class="btn btn-threads   fade-up delay-4" onclick="handleClick(event, this)">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.068V12c.004-3.521.858-6.374 2.538-8.48C5.882 1.22 8.605.025 12.142 0h.014c2.654.017 4.963.812 6.664 2.298 1.642 1.433 2.578 3.443 2.781 5.976l.003.043-2.298.16-.003-.04c-.164-1.964-.882-3.508-2.133-4.59-1.226-1.06-2.97-1.628-5.037-1.641-2.902.019-5.09.972-6.682 2.911-1.538 1.873-2.31 4.493-2.293 7.787v.076c-.017 3.294.755 5.914 2.293 7.787 1.592 1.939 3.78 2.892 6.682 2.911 2.067-.013 3.811-.581 5.037-1.641 1.251-1.082 1.969-2.626 2.133-4.59l.003-.04 2.298.16-.003.043c-.203 2.533-1.139 4.543-2.781 5.976C17.159 23.203 14.83 23.983 12.186 24zm.34-6.93c-2.01 0-3.586-.802-4.336-2.198-.416-.775-.497-1.67-.236-2.594.51-1.821 2.283-2.858 4.8-2.858h.205c.48 0 .947.032 1.395.095l.044.006v-.315c0-1.527-.833-2.333-2.474-2.333-.792 0-1.482.196-2.053.583l-.048.032-1.19-1.7.045-.032c.89-.62 2.046-.95 3.318-.95 2.768 0 4.334 1.51 4.334 4.137v5.924l-.044.005c-.512.06-1.18.09-1.98.09h-.225c-.25 0-.501-.007-.74-.021zm.293-1.78h.232c.307 0 .599-.009.866-.027v-1.752a9.9 9.9 0 0 0-1.263-.077h-.205c-1.537 0-2.5.573-2.745 1.43-.143.512-.077.985.187 1.327.322.413.908.64 1.7.64z"/></svg>
-      Acessar pelo Threads
-    </a>
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="cta-wrap">
+        <div class="cta-glow"></div>
+        <a href="#" class="cta-btn" onclick="handleClick(event)">
+          <span class="cta-main">▶ CLIQUE AQUI E ASSISTA.</span>
+          <span class="cta-note">Toque para abrir · Grátis · Sem cadastro</span>
+        </a>
+      </div>
 
-    <a id="btn-tiktok"   href="#" class="btn btn-tiktok   fade-up delay-5" onclick="handleClick(event, this)">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.74a4.85 4.85 0 0 1-1.01-.05z"/></svg>
-      Ver no TikTok
-    </a>
-
-    <a id="btn-youtube"  href="#" class="btn btn-youtube  fade-up delay-5" onclick="handleClick(event, this)">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-      Assistir no YouTube
-    </a>
-
-    <a id="btn-instagram" href="#" class="btn btn-instagram fade-up delay-6" onclick="handleClick(event, this)">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-      Ver no Instagram
-    </a>
-
-    <a id="btn-whatsapp" href="#" class="btn btn-whatsapp fade-up delay-7" onclick="handleClick(event, this)">
-      <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-      Receber no WhatsApp
-    </a>
-
-    <p class="fade-up delay-7 text-zinc-600 text-xs text-center mt-2">
-      🔒 Link seguro &nbsp;·&nbsp; Sem cadastro necessário
-    </p>
+      <div class="divider"></div>
+      <p class="footer-note">🔒 Link seguro &nbsp;·&nbsp; Sem cadastro &nbsp;·&nbsp; Acesso gratuito</p>
+    </div>
   </div>
+</div>
 
-  <script>
-    /* ── Configuração ── */
-    const BASE_LINK = "https://www.tiktok.com/ug/incentive/share/lite_push_coin?__status_bar=true&_d=dm7295j3dfd999&_pia_=1&_svg=1&activity_name=lite_invite&aid=1233&bb_version=2&enable_canvas=1&enable_canvas_optimize=1&et_campaign=lite_referral&et_gameplay=lite_push_coin&gd_label=click_wap_referral_lite_referral_onelink_coin_pusher&hide_nav_bar=1&im_settings=0&inc_pid=lite_referral_onelink_coin_pusher&invite_code=&media_source=lite_referral_onelink_coin_pusher&og_image=https%3A%2F%2Fp16-ug-incentive-va.tiktokcdn.com%2Ftos-maliva-i-68e3t9dfc1-us%2F6cce828197a741a79517cde633a8dd94.png~tplv-68e3t9dfc1-image.image&region=br&share_app_id=1233&share_enter_from=pop_promo_popup_push_coin&share_region=BR&share_scene=10002&share_time=1772571571865&sharer_biz=ug_paid_acquisition&sharer_os=ios&should_full_screen=1&timestamp=1772571579&u_code=Njc5MzU1MTAzMTgxODQyMTI1Mw%3D%3D&ug_launch_category=referral&use_new_link_policy=1&utm_campaign=client_share&utm_source=twitter";
+<script>
+  // ⚠️ COLE SEU LINK DO TIKTOK AQUI:
+  const BASE_LINK = "https://www.tiktok.com/@viajeporconta/video/7614499101769551111";
 
-    /* ── Variantes de título por parâmetro ?v= ── */
-    const titles = {
-      "1": "🔥 Promoção Relâmpago – Só Hoje!",
-      "2": "💸 Desconto Exclusivo por Tempo Limitado",
-      "3": "🎁 Oferta Especial Para Você",
-      "4": "⚡ Últimas Horas – Não Perca!",
-      "5": "🛒 Compre Agora com Super Desconto",
-      "6": "🏷️ Preço de Fábrica – Por Hoje",
-      "7": "💥 Aproveite Antes de Acabar!",
-      "8": "🎯 Oferta Exclusiva dos Seguidores",
-      "default": "🔥 Vídeo Imperdível"
-    };
+  function randomHash(l=10){ return Math.random().toString(36).substring(2,2+l); }
 
-    /* ── Aplica título dinâmico ── */
-    (function applyDynamicTitle() {
-      const params = new URLSearchParams(window.location.search);
-      const v = params.get("v") || "default";
-      const t = titles[v] || titles["default"];
-
-      document.title = t;
-      document.getElementById("main-title").textContent = t;
-      document.querySelector('meta[property="og:title"]').setAttribute("content", t);
-    })();
-
-    /* ── Gera hash aleatório anti-spam ── */
-    function randomHash(len = 8) {
-      return Math.random().toString(36).substring(2, 2 + len);
+  function handleClick(e){
+    e.preventDefault();
+    if(BASE_LINK === "https://www.tiktok.com/@viajeporconta/video/7614499101769551111"){
+      alert("⚠️ Configure o BASE_LINK no script antes de usar!");
+      return;
     }
+    const sep = BASE_LINK.includes("?") ? "&" : "?";
+    window.open(BASE_LINK + sep + "ref=" + randomHash(), "_blank", "noopener,noreferrer");
+  }
 
-    /* ── Handler de clique ── */
-    function handleClick(event, el) {
-      event.preventDefault();
-      if (BASE_LINK === "[COLE SEU LINK DO TIKTOK AQUI]") {
-        alert("⚠️ Configure o BASE_LINK no script antes de usar!");
-        return;
-      }
-      const separator = BASE_LINK.includes("?") ? "&" : "?";
-      const finalUrl = `${BASE_LINK}${separator}ref=${randomHash()}`;
-      window.open(finalUrl, "_blank", "noopener,noreferrer");
-    }
+  const titles = {
+    "1": "🔥 Leo Dias Revelou Tudo – Assista Agora",
+    "2": "😱 Vídeo Exclusivo Leo Dias – Antes que Suma",
+    "3": "🚨 Portal Leo Dias: Vídeo Bombástico",
+    "4": "⚡ Vídeo Imperdível – Leo Dias no TikTok",
+    "default": "🔥 Assista o Vídeo – Portal Leo Dias"
+  };
 
-    /* ── Contador regressivo (5 minutos por sessão) ── */
-    (function startTimer() {
-      const KEY = "bridge_timer_end";
-      let end = sessionStorage.getItem(KEY);
-      if (!end) {
-        end = Date.now() + 5 * 60 * 1000;
-        sessionStorage.setItem(KEY, end);
-      }
-      const el = document.getElementById("timer");
-      const tick = () => {
-        const diff = Math.max(0, end - Date.now());
-        const m = String(Math.floor(diff / 60000)).padStart(2, "0");
-        const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
-        el.textContent = `${m}:${s}`;
-        if (diff > 0) requestAnimationFrame(tick);
-        else el.textContent = "00:00";
-      };
-      tick();
-    })();
-  </script>
+  (function(){
+    const v = new URLSearchParams(window.location.search).get("v") || "default";
+    const t = titles[v] || titles["default"];
+    document.title = t;
+    document.querySelector('meta[property="og:title"]').setAttribute("content", t);
+  })();
+</script>
 </body>
 </html>
-
-
-
-
-
