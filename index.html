@@ -145,11 +145,13 @@
     seconds--;
     numEl.textContent = seconds;
     circle.style.strokeDashoffset = circumference * ((5 - seconds) / 5);
-    if (seconds <= 0) {
-      clearInterval(interval);
-      document.getElementById("timerOverlay").style.display = "none";
-    }
-  }, 1000);
+   if (seconds <= 0) {
+  clearInterval(interval);
+  document.getElementById("timerOverlay").style.display = "none";
+  setTimeout(() => {
+    window.location.href = NEXT_PAGE;
+  }, 2000);
+}
 
   function goToVideo() {
     window.location.href = NEXT_PAGE;
