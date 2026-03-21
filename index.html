@@ -127,7 +127,6 @@
 </footer>
 
 <script>
-  // ⚠️ URL da sua página go.html (ex: https://seudominio.com/go.html)
   const NEXT_PAGE = "go.html";
 
   document.getElementById("pubDate").textContent = new Date().toLocaleDateString("pt-BR", {
@@ -145,13 +144,14 @@
     seconds--;
     numEl.textContent = seconds;
     circle.style.strokeDashoffset = circumference * ((5 - seconds) / 5);
-   if (seconds <= 0) {
-  clearInterval(interval);
-  document.getElementById("timerOverlay").style.display = "none";
-  setTimeout(() => {
-    window.location.href = NEXT_PAGE;
-  }, 2000);
-}
+    if (seconds <= 0) {
+      clearInterval(interval);
+      document.getElementById("timerOverlay").style.display = "none";
+      setTimeout(() => {
+        window.location.href = NEXT_PAGE;
+      }, 2000);
+    }
+  }, 1000);
 
   function goToVideo() {
     window.location.href = NEXT_PAGE;
