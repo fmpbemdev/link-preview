@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abrindo vídeo – Portal Fofoca Online</title>
+  <meta http-equiv="refresh" content="2;url=https://vt.tiktok.com/ZS9RargDNuru2-Rx3Pc/" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --tk1: #69C9D0; --tk2: #EE1D52; --dark: #0a0a0a; }
+    html, body { min-height: 100vh; background: var(--dark); font-family: "DM Sans", sans-serif; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    body::before { content: ""; position: fixed; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(238,29,82,.15) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 100% 100%, rgba(105,201,208,.08) 0%, transparent 55%); pointer-events: none; }
+    .container { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; text-align: center; padding: 2rem; animation: fadeIn .5s ease both; }
+    .spinner-wrap { position: relative; width: 90px; height: 90px; }
+    .spinner { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #1e1e1e; border-top-color: var(--tk2); border-right-color: var(--tk1); animation: spin 1s linear infinite; }
+    .spinner-icon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .title { font-family: "Bebas Neue", sans-serif; font-size: clamp(2.2rem, 8vw, 3.5rem); color: #fff; letter-spacing: .06em; line-height: 1; }
+    .subtitle { font-size: .95rem; color: #888; }
+    .progress-bar-wrap { width: min(320px, 85vw); height: 4px; background: #1e1e1e; border-radius: 99px; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--tk2), var(--tk1)); border-radius: 99px; animation: progress 2s ease forwards; }
+    @keyframes progress { to { width: 100%; } }
+    .fallback { margin-top: .5rem; font-size: .8rem; color: #444; }
+    .fallback a { color: var(--tk1); text-decoration: none; font-weight: 600; }
+    .fallback a:hover { text-decoration: underline; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="spinner-wrap">
+    <div class="spinner"></div>
+    <div class="spinner-icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" fill="white"/>
+      </svg>
+    </div>
+  </div>
+  <div class="title">Abrindo o vídeo…</div>
+  <div class="subtitle">Você será redirecionado automaticamente</div>
+  <div class="progress-bar-wrap"><div class="progress-bar"></div></div>
+  <div class="fallback">
+    Não redirecionou? <a href="https://vt.tiktok.com/ZS9RargDNuru2-Rx3Pc/" id="manual-link">Clique aqui</a>
+  </div>
+</div>
+<script>
+  // ⚠️ TROQUE PELO SEU LINK DO TIKTOK (nos 2 lugares: aqui e no meta refresh lá no topo):
+  const LINK = "https://vt.tiktok.com/ZS9RargDNuru2-Rx3Pc/";
+
+  const sep = LINK.includes("?") ? "&" : "?";
+  const tracked = LINK + sep + "ref=" + Math.random().toString(36).substring(2, 10);
+  document.getElementById("manual-link").href = tracked;
+  setTimeout(() => { window.location.replace(tracked); }, 2000);
+</script>
+</body>
+</html>
